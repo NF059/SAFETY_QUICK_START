@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SAFETY QUICK START</title>
+</head>
+
+<body>
+
+<h1>SAFETY QUICK START</h1>
+
+<p id="counter">1 / 10</p>
+
+<img id="mainImage"
+     src="images/screen1.png"
+     width="300">
+
+<br><br>
+
+<button onclick="previousScreen()">
+◀ PREVIOUS
+</button>
+
+<button onclick="nextScreen()">
+NEXT ▶
+</button>
+
+<script>
+
+let currentScreen = 1;
+let totalScreens = 10;
+
+function updateScreen() {
+
+    document.getElementById("mainImage").src =
+        "images/screen" + currentScreen + ".png";
+
+    document.getElementById("counter").innerHTML =
+        currentScreen + " / " + totalScreens;
+}
+
+function nextScreen() {
+
+    currentScreen++;
+
+    if (currentScreen > totalScreens) {
+        currentScreen = 1;
+    }
+
+    updateScreen();
+}
+
+function previousScreen() {
+
+    currentScreen--;
+
+    if (currentScreen < 1) {
+        currentScreen = totalScreens;
+    }
+
+    updateScreen();
+}
+
+</script>
+
+</body>
+
+</html>
